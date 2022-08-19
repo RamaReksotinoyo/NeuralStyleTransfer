@@ -14,7 +14,7 @@ class NeuralStylesTransfer(nn.Module):
         self.model = model.features
         self.freeze()
 
-    def forward(self, x, layers):
+    def forward(self, x: torch.Tensor, layers: torch.Tensor) -> torch.Tensor:
         features = []
         for i, layer in self.model._modules.items():
             x = layer(x)
@@ -22,6 +22,6 @@ class NeuralStylesTransfer(nn.Module):
                 features.append(x)
         return features
 
-    def freeze(self):
+    def freeze(self) -> None:
         for param in self.model.parameters():
            param.requires_grad = False

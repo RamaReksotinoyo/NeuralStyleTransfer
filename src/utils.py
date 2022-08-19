@@ -13,7 +13,7 @@ def load_image(path: str, transform):
     return image
 
 
-def gram_matrix(tensor: ndarray) -> ndarray:
+def gram_matrix(tensor: torch.Tensor) -> torch.Tensor:
     """
     Calculate the gram matrix of a given tensor.
     """
